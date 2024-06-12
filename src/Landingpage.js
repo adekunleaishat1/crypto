@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef} from "react";
 import { IoChevronDown } from "react-icons/io5";
 import { AiFillCaretDown } from "react-icons/ai";
 import { FaBars } from "react-icons/fa6";
@@ -11,19 +11,22 @@ import { FaTwitter } from "react-icons/fa6";
 import { BiLogoLinkedin, BiCopyright } from "react-icons/bi";
 import { FaPlus, FaPinterest, FaMinus } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
-import phonix from './images/phonix image.jpg'
-import clinax from './images/clinasia image.jpg'
-import freyr from './images/freyr image.jpg'
-import koni from './images/kony image.jpg'
-import max from './images/maxsoftware image.jpg'
-import otsi from './images/otsi image.jpg'
-import value from './images/valuelabs image.jpg'
-import cape from './images/capgemini image.jpg'
+import phonix from "./images/phonix image.jpg";
+import clinax from "./images/clinasia image.jpg";
+import freyr from "./images/freyr image.jpg";
+import koni from "./images/kony image.jpg";
+import max from "./images/maxsoftware image.jpg";
+import otsi from "./images/otsi image.jpg";
+import value from "./images/valuelabs image.jpg";
+import cape from "./images/capgemini image.jpg";
+import Carousel from "./Carousel";
 const Landingpage = () => {
-  const [scrolled, setScrolled] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [slide, setSlide] = useState(false);
   const [show, setshow] = useState(false);
   const [show2, setshow2] = useState(false);
+  const scrollref = useRef(null)
+
 
   const [showaccordion, setshowaccordion] = useState({
     1: false,
@@ -31,32 +34,31 @@ const Landingpage = () => {
     3: false,
     4: false,
   });
-  let images = [
-      clinax,
-      phonix,
-      freyr,
-      cape,
-      max,
-      value,
-      otsi,
-      koni
-  ]
+  let images = [clinax, phonix, freyr, cape, max, value, otsi, koni];
   useEffect(() => {
     const handlescroll = () => {
+      // window.addEventListener("scroll",()=>{
+      //   alert("working")
+      //   setScrolled(!scrolled);
+      //   console.log(scrolled);
+      // })
       if (window.scrollY > 50) {
         // console.log(window.scrollY);
-        setScrolled(!scrolled);
+        setScrolled(true);
       } else {
-        setScrolled(scrolled);
+        console.log(scrolled);
+        setScrolled(false);
       }
     };
+    scrollref.current = handlescroll
+    console.log(scrollref);
 
-    window.addEventListener("scroll", handlescroll);
+    window.addEventListener("scroll", scrollref.current );
 
     return () => {
-      window.removeEventListener("scroll", handlescroll);
+      window.removeEventListener("scroll", scrollref.current );
     };
-  }, []);
+  }, [scrolled]);
   const accordion = (index) => {
     setshowaccordion((prev) => ({
       ...prev,
@@ -532,75 +534,7 @@ const Landingpage = () => {
         </div>
       </div>
       <div className="w-full bg-[#f8f8f8] py-6">
-        <div className="max-w-[1300px] mx-auto flex justify-around items-center gap-6 py-6 overflow-hidden   px-6">
-          <div className="w-[3712px] flex justify-between items-center  ">
-             {images.map((el,i)=>(
-              <>
-                <div className="mx-[15px] w-[227px]">
-                  <img className="w-[100%]" src={el} alt="" />
-                </div>
-              </>
-             ))
-
-             }
-            {/* <div className="mx-[15px] w-[]">
-              <img
-                className="w-[100%]"
-                src={require("./images/clinasia image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/phonix image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/freyr image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/capgemini image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/maxsoftware image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/valuelabs image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/otsi image.jpg")}
-                alt=""
-              />
-            </div>
-            <div className="mx-[15px]">
-              <img
-                className="w-[19%]"
-                src={require("./images/kony image.jpg")}
-                alt=""
-              />
-            </div> */}
-          </div>
-        </div>
+        <Carousel images={images}/>
       </div>
       <div id="about" className="w-full py-10">
         <div className="max-w-[1300px] mx-auto gap-4 grid grid-cols-1 md:grid-cols-2 ">

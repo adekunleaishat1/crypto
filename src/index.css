@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 *{
  font-family: "Cabin", sans-serif;
 /* font-optical-sizing: auto;
@@ -262,11 +263,16 @@ font-variation-settings:"wdth" 100; */
     transition: all 10ms;
     /* transition-delay: 0.2s;  */
   }
-  .carosel img{
+  .carosel {
     flex-shrink: 0;
-    animation: carouselimage 5s linear infinite  alternate-reverse;
+    width: calc(2 * 100%);
+    animation: carouselimage 10s linear infinite  forwards ;
   }
 
+  .carousel {
+    display: flex;
+    overflow: hidden;
+  }
   .image-animate{
     animation: float 2s infinite ;
   }
@@ -280,7 +286,7 @@ font-variation-settings:"wdth" 100; */
   }
   @keyframes carouselimage{
     from{
-      transform: translateX(100%);
+      transform: translateX(0%);
     }
     to{
       transform: translateX(-100%);
