@@ -741,7 +741,7 @@ const Landingpage = () => {
                     />
                   </div>
                 </div>
-                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  custom-width">
+                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  ">
                   <h3 className="text-[20px] font-semibold leading-[1.4] ">
                     High Performance
                   </h3>
@@ -763,7 +763,7 @@ const Landingpage = () => {
                     />
                   </div>
                 </div>
-                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  custom-width">
+                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  ">
                   <h3 className="text-[20px] font-semibold leading-[1.4] ">
                     Trade with Secure
                   </h3>
@@ -785,7 +785,7 @@ const Landingpage = () => {
                     />
                   </div>
                 </div>
-                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  custom-width">
+                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  ">
                   <h3 className="text-[20px] font-semibold leading-[1.4] ">
                     Professional Team
                   </h3>
@@ -807,7 +807,7 @@ const Landingpage = () => {
                     />
                   </div>
                 </div>
-                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  custom-width">
+                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto ">
                   <h3 className="text-[20px] font-semibold leading-[1.4] ">
                     Get free Wallet
                   </h3>
@@ -829,7 +829,7 @@ const Landingpage = () => {
                     />
                   </div>
                 </div>
-                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  custom-width">
+                <div className="col-span-2 text-start md:pl-0  pl-[20px] h-auto  ">
                   <h3 className="text-[20px] font-semibold leading-[1.4] ">
                     Digital Currencies
                   </h3>
